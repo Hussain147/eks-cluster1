@@ -70,3 +70,17 @@ Kindly follow the below steps to create EKS Kubernetes Cluster on AWS Cloud
     aws sts get-caller-identity  
     aws eks --region ap-south-1 update-kubeconfig --name eks-first-cluster  
     kubectl run mycurlpod --image=curlimages/curl -i --tty -- sh  
+
+
+(If Kubectl not worked then follow step 6 (For Amazon Linux 2))
+    6. (a) Download the kubectl binary using curl:
+        sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        (b) Change the permission:
+            sudo chmod +x kubectl
+        (c) Move the kubectl binary to a directory that is in the system's PATH:
+            sudo mv kubectl /usr/local/bin/
+        (d) Test the kubectl installation:
+            kubectl version
+        (e) Check the Nodes:
+            kubectl get nodes
+    
